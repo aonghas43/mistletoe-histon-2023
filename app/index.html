@@ -67,20 +67,27 @@
 	       style: function (feature) {
 				           return {color: feature.properties.color};
 				       },
-	       attribution : © [Insert name of copyright and/or database right owner], [insert year published/created]
-
-	   This [insert name of information resource] is licensed under the Open Government Licence 3.0.
+			       attribution : 'This roadslayer is licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence 3.0.</a>'
 		       }).bindPopup(function (layer) {
 					       return layer.feature.properties.description;
 				   }).addTo(map);
 */
 /*
+            var treeIcon = L.icon({
+                           iconUrl: 'docs/images/Tree-12361.svg.png',
+			   iconSize: [38,95],
+			   iconAnchor: [22,94],
+			   popupAnchor: [-3,-76],
+			   tooltipAnchor:[-3,-76]
+			});
+            function treeMarker(geoJsonPoint, latlng)
+	     { 
+	         return L.marker(latlng, {icon: treeIcon});
+	     };
 	   const treesLayer = L.geoJSON(trees, {
-	       style: function (feature) {
-				           return {color: feature.properties.color};
-				       }
+			       pointoLayer: treeMarker
 		       }).bindPopup(function (layer) {
-					       return layer.feature.properties.description;
+		                     return layer.feature.properties.description;
 				   }).addTo(map);
 */
 
