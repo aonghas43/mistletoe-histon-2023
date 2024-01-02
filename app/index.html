@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Histon and Impington Mistletoe survey 2023</title>
 
-    <link rel="shortcut icon" 
-             
+    <link rel="shortcut icon"         
 	     href="docs/images/favicon.ico" />
 
     <link rel="stylesheet" 
@@ -50,8 +49,20 @@
 					       return layer.feature.properties.description;
 				   }).addTo(map);
 */
+/*
+Farm fresh tree icon, 
+https://commons.wikimedia.org/wiki/File:Farm-Fresh_tree_white.png
+licensed under the Creative Commons Attribution 3.0 Unported license.
+https://creativecommons.org/licenses/by/3.0/deed.en
+black tree icon, 
+https://commons.wikimedia.org/wiki/File:Tree-12361.svg
+licensed under the Creative Commons Attribution 3.0 Unported license.
+https://creativecommons.org/licenses/by/3.0/deed.en
+*/
+
             var treeIcon = L.icon({
-                           iconUrl: 'docs/images/Tree-12361.svg.png',
+                           //iconUrl: 'docs/images/Farm-Fresh_tree_white.png',
+						   iconUrl: 'docs/images/Tree-12361.svg.png',
 			   iconSize: [16,16],
 			   iconAnchor: [10,10],
 			   popupAnchor: [-15,-20],
@@ -63,7 +74,7 @@
 			                 {icon: treeIcon,
 							 riseOnHover: true,
 							 riseOffset: 500,
-							 opacity: 0.5,
+							 opacity: 0.9,
 							  alt: feature.properties.StreetAddress,
 							  title: feature.properties.description});
 	     };
