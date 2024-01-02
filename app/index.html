@@ -48,16 +48,6 @@
 						maxZoom: 19,
 				attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'});
 /*
-	   function onEachFeature(feature, layer) {
-	      let popupContent = `<p>I started out as a GeoJSON ${feature.geometry.type}, but now I'm a Leaflet vector!</p>`;
-              if (feature.properties && feature.properties.popupContent) {
-	          popupContent += feature.properties.popupContent;
-		}
-	      layer.bindPopup(popupContent);
-	   
-	}
-*/
-/*
 	   const roadsLayer = L.geoJSON(roads, {
 	       style: function (feature) {
 				           return {color: feature.properties.color};
@@ -76,7 +66,10 @@
 			});
             function treeMarker(feature, latlng)
 	     { 
-	         return L.marker(latlng, {icon: treeIcon});
+	         return L.marker(latlng, 
+			                 {icon: treeIcon,
+							  alt: feature.properties.StreetAddress,
+							  title: feature.properties.description});
 	     };
 	   const treesLayer = L.geoJSON(trees, {
 			       pointToLayer: treeMarker,
