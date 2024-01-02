@@ -28,6 +28,7 @@
     width: 1200px;
     max-width: 100%;
     max-height: 100%;
+  .info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
 }
 </style>
 </head>
@@ -68,16 +69,27 @@
 	     { 
 	         return L.marker(latlng, 
 			                 {icon: treeIcon,
+							 riseOnHover: true,
 							  alt: feature.properties.StreetAddress,
 							  title: feature.properties.description});
 	     };
+		 
 	   const treesLayer = L.geoJSON(trees, {
 			       pointToLayer: treeMarker,
-			       attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
+				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
 		       } ).bindPopup(function (layer) {
-		                     return layer.feature.properties.description;
+								props = layer.feature.properties;
+								const contents = '<b>' + props.StreetAddress + '</b><br />' + props.surroundings + '<br />' + props.treeType+ "," + props.numberOfPlants + " plants" + '<br />' ;
+		                     return contents;
 				   })
-		
+				   
+		// set up map
+		var map = L.map('map', {
+			center: [52.2535, 0.1042],
+			zoom: 15,
+			layers: [tiles, treesLayer]
+			});		
+		// add Layer Control
 		var baseMaps = { 
 						"OpenStreetMap" : tiles,
 						"OpenTopoMap" : openTopoMap
@@ -85,13 +97,8 @@
 		var overLays = {
 						"Mistletoe" : treesLayer
 						}
-		var map = L.map('map', {
-			center: [52.2535, 0.1042],
-			zoom: 15,
-			layers: [tiles, treesLayer]
-			});				
-	    var layerControl = L.control.layers(baseMaps, overLays).addTo(map);
-
+		var layerControl = L.control.layers(baseMaps, overLays).addTo(map);
+		    
     </script>
 
 </body>
