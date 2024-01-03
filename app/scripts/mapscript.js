@@ -8,11 +8,11 @@
 					});
 					
 		var openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-						maxZoom: 19,
+						maxZoom: 20,
 				attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'});
 				
 		var OPNVKarte = L.tileLayer('https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png', {
-			maxZoom: 19,
+			maxZoom: 20,
 			attribution: 'Map <a href="https://memomaps.de/">memomaps.de</a> <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 /*
@@ -24,6 +24,9 @@ black tree icon,
 https://commons.wikimedia.org/wiki/File:Tree-12361.svg
 licensed under the Creative Commons Attribution 3.0 Unported license.
 https://creativecommons.org/licenses/by/3.0/deed.en
+mistletoe berries
+https://commons.wikimedia.org/wiki/File:Mistletoe_Berries_Uk.jpg
+Alexbrn, Public domain, via Wikimedia Commons
 */
 
             var treeIcon = L.icon({
