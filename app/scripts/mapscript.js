@@ -47,6 +47,22 @@ Alexbrn, Public domain, via Wikimedia Commons
 							  alt: feature.properties.StreetAddress,
 							  title: feature.properties.description});
 	     };
+		 // layer with bunch sizes
+		   function bunchMarker(feature, latlng)
+	     { 
+			var theIcon = L.divIcon({  html: feature.properties.numberOfPlants,
+			  className: "svg-icon",
+			  iconSize: [24, 40],
+			  iconAnchor: [12,30]
+			});
+	         return L.marker(latlng, 
+			                 {icon: theIcon,
+							 riseOnHover: true,
+							 riseOffset: 500,
+							 opacity: 0.9,
+							  alt: feature.properties.StreetAddress,
+							 title: feature.properties.numberOfPlants});
+	     };
 		 
 	   const treesLayer = L.geoJSON(trees, {
 			       pointToLayer: treeMarker,
@@ -56,10 +72,15 @@ Alexbrn, Public domain, via Wikimedia Commons
 								const contents = '<b>' + props.StreetAddress + '</b><br />' + props.surroundings + '<br />' + props.treeType+ "," + props.numberOfPlants + " plants" + '<br />' ;
 		                     return contents;
 				   })
+		 const bunchLayer = L.geoJSON(trees, {
+			       pointToLayer: bunchMarker,
+				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
+		       } )
 				   
 		// set up map
+		var HisImp = [52.2535, 0.1042];
 		var map = L.map('map', {
-			center: [52.2535, 0.1042],
+			center: HisImp,
 			zoom: 15,
 			layers: [tiles, treesLayer]
 			});		
@@ -70,7 +91,13 @@ Alexbrn, Public domain, via Wikimedia Commons
 						"OpenTopoMap" : openTopoMap
 						}
 		var overLays = {
-						"Mistletoe" : treesLayer
+						"Mistletoe"    : treesLayer,
+						"Bunch sizes"  : bunchLayer
 						}
 		var layerControl = L.control.layers(baseMaps, overLays).addTo(map);
 		}
+		
+//
+// written with assistance from information and code examples here 
+// "Using SVG icons for Leafletjs" : https://onestepcode.com/leaflet-markers-svg-icons/
+// leafletjs examples: https://leafletjs.com/examples/geojson/example.html 
