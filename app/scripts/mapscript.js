@@ -52,8 +52,8 @@ Alexbrn, Public domain, via Wikimedia Commons
 	     { 
 			var theIcon = L.divIcon({  html: feature.properties.numberOfPlants,
 			  className: "svg-icon",
-			  iconSize: [24, 40],
-			  iconAnchor: [12,30]
+			  iconSize: [16, 26],
+			  iconAnchor: [10,28]
 			});
 	         return L.marker(latlng, 
 			                 {icon: theIcon,
