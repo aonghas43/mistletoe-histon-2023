@@ -12,3 +12,12 @@ html, body {
 #berries {
 	float: right;
 }
+
+.svg-icon {
+	background-color: aqua;
+	opacity: 0.3;
+}
+
+.svg-icon:hover {
+  color: #FF00FF;
+}
