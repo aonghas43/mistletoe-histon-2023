@@ -15,6 +15,8 @@ html, body {
 
 .svg-icon {
 	background-color: aqua;
+	// override element.style height
+	height: 12px !important;
 	opacity: 0.3;
 }
 
