@@ -1,0 +1,34 @@
+1) Survey data 
+
+1.1) Storage
+stored in spreadsheet and cleaned, correlated with previous survey data :
+- new data
+- changes
+- picture link
+- all data points to have E/N (Nat grid) and lat-long coords
+- first surveyed, last surveyed date
+- OS grid reference optional
+
+1.2) Cluster sizes above 9 normalized to 10 or 20 for counting purposes
+
+2)Coordinates
+
+Derived in one of several ways :
+
+- Street address, using publicly available data from Ordnance survey (OS data Open UPRN [unique property reference numbers]) https://osdatahub.os.uk/downloads/open/OpenUPRN
+
+- What3words location, where provided, using what3words coordinate converter. https://what3words.com/products/batch-converter
+
+- Previous survey OS National grid E/N coordinates, converted using OS batch converter: https://www.ordnancesurvey.co.uk/gps/transformation/batch
+
+- OS converter used to derive E/N from lat-long
+
+3) Pictures
+
+3.1) Storage
+Stored in google drive, picture field is shareable link.
+
+3.2) For GDPR purposes, pictures are assumed to be :
+- freely provided
+- not containing any indentifiable individuals
+
