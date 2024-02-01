@@ -1,6 +1,6 @@
 {
 	 "use strict";
-	 
+		 
 	// base maps
 	    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 						maxZoom: 20,
@@ -58,8 +58,9 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 				return contents;
 		};
 		
-		// Layer depends on variable "trees", set eleswhere, containing the trees data in geoJSON format
-	   const treesLayer = L.geoJSON(trees, {
+		// Layer depends on variable "trees" containing the trees data in geoJSON format
+		
+		   const treesLayer = L.geoJSON(trees, {
 			       pointToLayer: treeMarker,
 				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
 		       } ).bindPopup(function (layer) {
@@ -90,7 +91,6 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 						"Bunch sizes"  : bunchLayer
 						}
 		var layerControl = L.control.layers(baseMaps, overLays).addTo(map);
-		
 		
 //
 // written with assistance from information and code examples here 
