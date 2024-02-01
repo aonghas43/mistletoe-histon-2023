@@ -12,6 +12,9 @@ var trees = {
                 "surroundings": "Front garden",
 				"treeType": "Birch",
 				"numberOfPlants" : 3,
+				"what3words": "unafraid.fortnightly.tablet",
+				"long" : "52.2470773721", 	
+				"lat" : "0.1069824668",
 				"description": "Birch tree with 3 plants"
  
             }
@@ -27,6 +30,9 @@ var trees = {
                 "surroundings": "Front garden",
 				"treeType": "Oak",
 				"numberOfPlants" : 15,
+				"what3words": "late.mackerel.nonconforming",
+				"long" : "52.2470773721", 	
+				"lat" : "0.1069824668",
 				"description": "Oak tree with 15 plants"
  
             }
@@ -43,6 +49,9 @@ var trees = {
                 "surroundings": "Front garden",
 				"treeType": "Lime",
 				"numberOfPlants" : 1,
+				"what3words": "alertly.decides.massager",
+				"long" : "52.2470773721", 	
+				"lat" : "0.1069824668",
 				"description": "Lime tree with 1 plant"
  
             }

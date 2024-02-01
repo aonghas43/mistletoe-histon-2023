@@ -6,15 +6,7 @@
 						maxZoom: 20,
 						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 					});
-					
-		var openTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-						maxZoom: 20,
-				attribution: 'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'});
-				
-		var OPNVKarte = L.tileLayer('https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png', {
-			maxZoom: 20,
-			attribution: 'Map <a href="https://memomaps.de/">memomaps.de</a> <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-});
+};
 /*
 Farm fresh tree icon, 
 https://commons.wikimedia.org/wiki/File:Farm-Fresh_tree_white.png
@@ -63,13 +55,19 @@ Alexbrn, Public domain, via Wikimedia Commons
 							  alt: feature.properties.StreetAddress,
 							 title: feature.properties.numberOfPlants});
 	     };
-		 
+		function treePopupContent(feature) {
+				
+				props = feature.properties;
+				const contents = '<b>' + props.StreetAddress + '</b><br />' + props.surroundings + '<br />' + props.treeType+ "," + props.numberOfPlants + " plants" + '<br />' + '<a target="_blank" href="http://maps.google.com/maps?q=' + props.long + ',' +  props.lat +'">Google Stretview &copy;' + '</a>' ;
+				
+				// could instead do w3w '<a href="https://what3words.com/' + props.what3words + '">what3words link: ' + props.what3words + '</a>'
+				return contents;
+		};
 	   const treesLayer = L.geoJSON(trees, {
 			       pointToLayer: treeMarker,
 				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
 		       } ).bindPopup(function (layer) {
-								props = layer.feature.properties;
-								const contents = '<b>' + props.StreetAddress + '</b><br />' + props.surroundings + '<br />' + props.treeType+ "," + props.numberOfPlants + " plants" + '<br />' ;
+								const contents = treePopupContent(layer.feature)
 		                     return contents;
 				   })
 		 const bunchLayer = L.geoJSON(trees, {
@@ -86,16 +84,14 @@ Alexbrn, Public domain, via Wikimedia Commons
 			});		
 		// add Layer Control
 		var baseMaps = { 
-						"OpenStreetMap" : tiles,
-						"OPNVKarte": OPNVKarte,
-						"OpenTopoMap" : openTopoMap
-						}
+						"OpenStreetMap" : tiles
+  					}
 		var overLays = {
 						"Mistletoe"    : treesLayer,
 						"Bunch sizes"  : bunchLayer
 						}
 		var layerControl = L.control.layers(baseMaps, overLays).addTo(map);
-		}
+		
 		
 //
 // written with assistance from information and code examples here 
