@@ -20,3 +20,6 @@ rem
 rem OGIS free software ogr2ogr for conversion from CSV to GeoJSON
 rem
 ogr2ogr -if CSV -oo Y_POSSIBLE_NAMES=Lon* -oo X_POSSIBLE_NAMES=Lat*  -oo KEEP_GEOM_COLUMNS=NO -a_srs %CRS% -f GeoJSON -nlt POINT -nln %NAME% -lco DESCRIPTION=%DESC% -lco ID_FIELD=Tree -lco RFC7946=YES %OUTFILE%   %INFILE%
+
+rem TSV maybe btter since street address may contains commas
+rem ogr2ogr -if CSV  -oo SEPARATOR=TAB -oo Y_POSSIBLE_NAMES=Lon* -oo X_POSSIBLE_NAMES=Lat*  -oo KEEP_GEOM_COLUMNS=NO -a_srs %CRS% -f GeoJSON -nlt POINT -nln %NAME% -lco DESCRIPTION=%DESC% -lco ID_FIELD=Tree -lco RFC7946=YES %OUTFILE%   %INFILE%
