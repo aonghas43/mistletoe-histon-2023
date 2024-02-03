@@ -1,0 +1,60 @@
+var trees = {
+	"type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates":  [0.10573,52.248019]
+            },
+            "properties": {
+				"StreetAddress": "2 New School Road",
+                "surroundings": "Front garden",
+				"treeType": "Birch",
+				"numberOfPlants" : 3,
+				"what3words": "unafraid.fortnightly.tablet",
+				"long" : "52.2470773721", 	
+				"lat" : "0.1069824668",
+				"description": "Birch tree with 3 plants"
+ 
+            }
+        },
+		{
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates":  [0.106964,52.247103]
+            },
+            "properties": {
+				"StreetAddress": "22-32 Poplar Close",
+                "surroundings": "Front garden",
+				"treeType": "Oak",
+				"numberOfPlants" : 15,
+				"what3words": "late.mackerel.nonconforming",
+				"long" : "52.2470773721", 	
+				"lat" : "0.1069824668",
+				"description": "Oak tree with 15 plants"
+ 
+            }
+        },
+		{
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates":
+                    [0.106435,52.247723]
+            },
+            "properties": {
+				"StreetAddress": "New School Road",
+                "surroundings": "Front garden",
+				"treeType": "Lime",
+				"numberOfPlants" : 1,
+				"what3words": "alertly.decides.massager",
+				"long" : "52.2470773721", 	
+				"lat" : "0.1069824668",
+				"description": "Lime tree with 1 plant"
+ 
+            }
+        },
+]
+};
