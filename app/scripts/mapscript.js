@@ -1,12 +1,8 @@
 {
 	 "use strict";
 		 
-	// base maps
-	    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-						maxZoom: 20,
-						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-					});
-};
+	
+
 /*
 black tree icon, 
 https://commons.wikimedia.org/wiki/File:Tree-12361.svg
@@ -51,16 +47,21 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 		function treePopupContent(feature) {
 				
 				props = feature.properties;
-				const contents = '<b>' + props.StreetAddress + '</b><br />' + props.surroundings + '<br />' + props.treeType+ "," + props.numberOfPlants + " plants" + '<br />' + '<a target="_blank" href="http://maps.google.com/maps?q=' + props.long + ',' +  props.lat +'">Google Stretview &copy;' + '</a>' ;
+				const contents = '<b>' + props.StreetAddress + '</b><br />' + props.surroundings + '<br />' + props.treeType+ "," + props.numberOfPlants + " plants" + '<br />' + '<a target="_blank" href="http://maps.google.com/maps?q=' + props.long + ',' +  props.lat +'">Google Streetview &copy;' + '</a>' ;
 				
 				// could instead do w3w '<a href="https://what3words.com/' + props.what3words + '">what3words &copy;  link: ' + props.what3words + '</a>'
 				// could also add link to picture if there is one
 				return contents;
 		};
-		
-		// Layer depends on variable "trees" containing the trees data in geoJSON format
-		
-		   const treesLayer = L.geoJSON(trees, {
+
+		function makeLayers() {
+			
+		   // base maps
+			var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+						maxZoom: 20,
+						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+					});
+		   var treesLayer = L.geoJSON(trees, {
 			       pointToLayer: treeMarker,
 				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
 		       } ).bindPopup(function (layer) {
@@ -68,12 +69,19 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 		                     return contents;
 				   })
 		// same data reused, but different attribute (bunch size) used for marker display
-		 const bunchLayer = L.geoJSON(trees, {
+		 var bunchLayer = L.geoJSON(trees, {
 			       pointToLayer: bunchMarker,
 				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
 		       } )
-				   
+			   return [tiles, treesLayer, bunchLayer];
+		};
+
+function makeMap (layers) {		
 		// set up map
+		var tiles = layers[0];
+		var treesLayer = layers[1];
+		var bunchLayer = layers[2];
+		
 		var HisImp = [52.2535, 0.1042];
 		var map = L.map('map', {
 			center: HisImp,
@@ -91,7 +99,25 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 						"Bunch sizes"  : bunchLayer
 						}
 		var layerControl = L.control.layers(baseMaps, overLays).addTo(map);
+};
+
 		
+		// Layer depends on variable "trees" containing the trees data in geoJSON format
+/*
+		fetch("./data/trees.json", {"mode" : "no-cors"})
+		    .then((response) => {
+				if (!response.ok) {
+				throw new Error(`HTTP error! Status: ${response.statusText}`);
+				}})
+			.then(trees => response.json())
+			.then(layers = makeLayers())
+			.then(makeMap(layers));
+*/
+		
+ var layers = makeLayers();
+ 
+ makeMap(layers);
+}
 //
 // written with assistance from information and code examples here 
 // "Using SVG icons for Leafletjs" : https://onestepcode.com/leaflet-markers-svg-icons/

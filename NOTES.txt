@@ -7,21 +7,26 @@ stored in spreadsheet and cleaned, correlated with previous survey data :
 - picture link
 - all data points to have E/N (Nat grid) and lat-long coords
 - first surveyed, last surveyed date
-- OS grid reference optional
+- OS grid reference optional by-product of using OS online coordinate converter, crude check that convreted points are in right place
 
 1.2) Cluster sizes above 9 normalized to 10 or 20 for counting purposes
 
-2)Coordinates
+2) Coordinates : multiple formats stored
+
+OSGB E/N
+Lat-long
+What3words
 
 Derived in one of several ways :
 
-- Street address, using publicly available data from Ordnance survey (OS data Open UPRN [unique property reference numbers]) https://osdatahub.os.uk/downloads/open/OpenUPRN
+a) from street address, using publicly available data from Ordnance survey (OS data Open UPRN [unique property reference numbers]) https://osdatahub.os.uk/downloads/open/OpenUPRN
 
-- What3words location, where provided, using what3words coordinate converter. https://what3words.com/products/batch-converter
+b) What3words location, where provided, using what3words coordinate converter. https://what3words.com/products/batch-converter.CAn concert between w3w and lat-long.
+What3words location can be backfilled from other coordinates where present.
 
-- Previous survey OS National grid E/N coordinates, converted using OS batch converter: https://www.ordnancesurvey.co.uk/gps/transformation/batch
+c) Previous survey OS National grid E/N coordinates, converted using OS batch converter: https://www.ordnancesurvey.co.uk/gps/transformation/batch. Can transform either way between E/N and lat/long.
 
-- OS converter used to derive E/N from lat-long
+d) OS converter used to derive E/N from lat-long
 
 3) Pictures
 
@@ -30,5 +35,5 @@ Stored in google drive, picture field is shareable link.
 
 3.2) For GDPR purposes, pictures are assumed to be :
 - freely provided
-- not containing any indentifiable individuals
+- not containing any identifiable individuals
 
