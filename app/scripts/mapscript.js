@@ -35,7 +35,7 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 		 // layer with bunch sizes
 		   function bunchMarker(feature, latlng)
 	     { 
-			var theIcon = L.divIcon({  html: feature.properties.numberOfPlants,
+			var theIcon = L.divIcon({  html: feature.properties.numberofplants,
 			  className: "svg-icon",
 			  iconSize: [16, 26],
 			  iconAnchor: [10,28]
@@ -46,7 +46,7 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 							 riseOffset: 500,
 							 opacity: 0.9,
 							  alt: feature.properties.StreetAddress,
-							 title: feature.properties.numberOfPlants});
+							 title: feature.properties.numberofplants});
 	     };
 		 function trailMarker(feature, latlng) {
 			 var geojsonMarkerOptions = {
@@ -63,7 +63,11 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 		function treePopupContent(feature) {
 				
 				props = feature.properties;
-				const contents = '<b>' + props.StreetAddress + '</b><br />' + props.surroundings + '<br />' + props.treeType+ "," + props.numberOfPlants + " plants" + '<br />' + '<a target="_blank" href="http://maps.google.com/maps?q=' + props.long + ',' +  props.lat +'">Google Stretview &copy;' + '</a>' ;
+				var treeType = props.treeType;
+				if (treeType === "") {
+					treeType="unknown";
+				}
+				const contents = '<b>' + props.StreetAddress + '</b><br />' + props.Surroundings + '<br />' + treeType+ "," + props.numberofplants + " plants" + '<br />' + '<a target="_blank" href="http://maps.google.com/maps?q=' + props.long + ',' +  props.lat +'">Google Streetview &copy;' + '</a>' ;
 				
 				// could instead do w3w '<a href="https://what3words.com/' + props.what3words + '">what3words &copy;  link: ' + props.what3words + '</a>'
 				// could also add link to picture if there is one
@@ -71,6 +75,9 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 		};
 		
 		// Layer depends on variable "trees" containing the trees data in geoJSON format
+		//Tree	StreetAddress	Surroundings	Habitat type	treeType	As recorded	numberofplants	Easting	Northing	What3words	Lat	Long	Grid ref	First surveyed	Last Surveyed	Picture
+		// use [""] notation e.g. feature["First surveyed"]
+
 				
 		   const treesLayer = L.geoJSON(trees, {
 			       pointToLayer: treeMarker,
@@ -89,7 +96,7 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 			      	   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>',
 					   pointToLayer: trailMarker,
 					    filter: function(feature, layer) {
-							return (feature.properties.numberOfPlants >= 10)
+							return (feature.properties.numberofplants >= 10)
     }
 		       } )
 				   
