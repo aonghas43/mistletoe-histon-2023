@@ -48,6 +48,18 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 							  alt: feature.properties.StreetAddress,
 							 title: feature.properties.numberOfPlants});
 	     };
+		 function trailMarker(feature, latlng) {
+			 var geojsonMarkerOptions = {
+					radius: 8,
+					fillColor: "#ff7800",
+					color: "#000",
+					weight: 1,
+					opacity: 1,
+					fillOpacity: 0.8
+					};
+			  return L.circleMarker(latlng, geojsonMarkerOptions);
+		 };
+		 
 		function treePopupContent(feature) {
 				
 				props = feature.properties;
@@ -59,7 +71,7 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 		};
 		
 		// Layer depends on variable "trees" containing the trees data in geoJSON format
-		
+				
 		   const treesLayer = L.geoJSON(trees, {
 			       pointToLayer: treeMarker,
 				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
@@ -71,6 +83,14 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 		 const bunchLayer = L.geoJSON(trees, {
 			       pointToLayer: bunchMarker,
 				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
+		       } )
+			  // same data, filter to give trail of largest # bunches on tree 
+		const trailLayer =  L.geoJSON(trees, {
+			      	   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>',
+					   pointToLayer: trailMarker,
+					    filter: function(feature, layer) {
+							return (feature.properties.numberOfPlants >= 10)
+    }
 		       } )
 				   
 		// set up map
@@ -88,7 +108,8 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 		// available layers
 		var overLays = {
 						"Mistletoe"    : treesLayer,
-						"Bunch sizes"  : bunchLayer
+						"Bunch sizes"  : bunchLayer,
+						"Large bunch trail" : trailLayer
 						}
 		var layerControl = L.control.layers(baseMaps, overLays).addTo(map);
 		
@@ -97,3 +118,4 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 // "Using SVG icons for Leafletjs" : https://onestepcode.com/leaflet-markers-svg-icons/
 // leafletjs examples: https://leafletjs.com/examples/geojson/example.html 
 // https://gis.stackexchange.com/questions/111410/displaying-link-in-popup-with-leaflet
+
