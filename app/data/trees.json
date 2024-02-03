@@ -1,9 +1,9 @@
-var trees = {
+{
 "type": "FeatureCollection",
 "name": "HIGS 2023-24 Mistletoe",
 "description": "HIGS 2023-24 Mistetoe Survey",
 "features": [
-{ "type": "Feature", "id": "1", "properties": { "Location description": "Infant School grounds New School Road", "Surroundings": "Public space", "Habitat type": "Other", "Tree type (if known)": "", "As recorded": ">10", "Used for total counted": "10", "Easting": "543912", "Northing": "263128", "What3words": "tugs.miscues.toehold", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "https://photos.app.goo.gl/sBGGmL4hZyUNYuDK6" }, "geometry": { "type": "Point", "coordinates": [ 0.1066085, 52.2475337 ] } },
+{ "type": "Feature", "id": "1", "properties": { "Location description": "Infant School grounds New School Road", "Surroundings": "Public space", "Habitat type": "Other", "Tree type (if known)": "", "As recorded": ">10", "Used for total counted": "10", "Easting": "543912", "Northing": "263128", "What3words": "tugs.miscues.toehold", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1066085, 52.2475337 ] } },
 { "type": "Feature", "id": "2", "properties": { "Location description": "Poplar Road new houses (shared row of trees)", "Surroundings": "Other", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": ">10", "Used for total counted": "10", "Easting": "543915", "Northing": "263088", "What3words": "clammy.ethically.rentals", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1066354, 52.2471735 ] } },
 { "type": "Feature", "id": "3", "properties": { "Location description": "Poplar Road new houses (shared row of trees)", "Surroundings": "Other", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": "8", "Used for total counted": "8", "Easting": "543922", "Northing": "263085", "What3words": "reapply.youths.docket", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1067366, 52.2471447 ] } },
 { "type": "Feature", "id": "4", "properties": { "Location description": "Poplar Road new houses (shared row of trees)", "Surroundings": "Other", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": ">10", "Used for total counted": "10", "Easting": "543928", "Northing": "263083", "What3words": "burglar.buzzwords.plumped", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1068236, 52.2471252 ] } },
@@ -67,4 +67,3 @@ var trees = {
 { "type": "Feature", "id": "62", "properties": { "Location description": "Ash tree at CCSA beside veteran oak", "Surroundings": "Other", "Habitat type": "Woodland", "Tree type (if known)": "Ash", "As recorded": "1", "Used for total counted": "1", "Easting": "543401", "Northing": "264277", "What3words": "oblige.infrequently.notecards", "Grid ref": "TL4364", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.0996163, 52.2579901 ] } }
 ]
 }
-;

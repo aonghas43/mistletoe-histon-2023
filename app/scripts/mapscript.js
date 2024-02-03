@@ -65,12 +65,18 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 				props = feature.properties;
 				var treeType = props["Tree type (if known)"];
 				if (treeType === "") {
-					treeType="unknown type";
+					treeType="unknown tree type";
 				}
-				const contents = '<b>' + props["Location description"] + '</b><br />' + props.Surroundings + '<br />' + treeType+ "," + props["Used for total counted"] + " plants" + '<br />' + '<a target="_blank" href="http://maps.google.com/maps?q=' + props.long + ',' +  props.lat +'">Google Streetview &copy;' + '</a>' ;
+				var Picture = props.Picture;
+				if (Picture != "") {
+					Picture = '<br /><a href="' + props.Picture + '" alt="picture" target="_blank">Picture</a>' ;
+				}
+				var Streetview = '<a target="_blank" alt="Google streetview in separate tab" href="http://maps.google.com/maps?q=' + props.long + ',' +  props.lat +'">Google Streetview &copy;' + '</a>';
+				
+				const contents = '<b>' + props["Location description"] + '</b><br />' + props.Surroundings + '<br />' + treeType+ "," + props["Used for total counted"] + " plants" + '<br />' + Streetview  + " " + Picture;
 				
 				// could instead do w3w '<a href="https://what3words.com/' + props.what3words + '">what3words &copy;  link: ' + props.what3words + '</a>'
-				// could also add link to picture if there is one
+
 				return contents;
 		};
 		
