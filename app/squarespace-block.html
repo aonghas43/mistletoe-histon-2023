@@ -1,0 +1,275 @@
+<!-- version 0.9 -->
+<!--
+HTML Container for
+- custom CSS - leafetjs css overrides and others
+- tree data as Javascript
+- Javascript code for layers, styling etc.
+This file is loaded into squarespace.html via jQuery, for testing only
+-->
+
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.leaflet-container {
+    height: 800px;
+    width: 1200px;
+    max-width: 100%;
+    max-height: 100%;
+}
+#berries {
+	float: right;
+}
+
+.svg-icon {
+	background-color: aqua;
+	// override element.style height
+	height: 12px !important;
+	opacity: 0.3;
+}
+
+.svg-icon:hover {
+  color: #FF00FF;
+}
+details > summary {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 4px;
+  width: 200px;
+  background-color:  #8FBC8F;
+  border: none;
+  box-shadow: 1px 1px 2px #bbbbbb;
+  cursor: pointer;
+}
+
+details > p, details > ul {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #eeeeee;
+  padding: 4px;
+  margin: 0;
+  box-shadow: 1px 1px 2px #bbbbbb;
+}
+
+
+</style>
+
+<script type="text/javascript">
+var trees = {
+"type": "FeatureCollection",
+"name": "HIGS 2023-24 Mistletoe",
+"description": "HIGS 2023-24 Mistetoe Survey",
+"features": [
+{ "type": "Feature", "id": "1", "properties": { "Location description": "Infant School grounds New School Road", "Surroundings": "Public space", "Habitat type": "Other", "Tree type (if known)": "", "As recorded": ">10", "Used for total counted": "10", "Easting": "543912", "Northing": "263128", "What3words": "tugs.miscues.toehold", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "https://photos.app.goo.gl/sBGGmL4hZyUNYuDK6" }, "geometry": { "type": "Point", "coordinates": [ 0.1066085, 52.2475337 ] } },
+{ "type": "Feature", "id": "2", "properties": { "Location description": "Poplar Road new houses (shared row of trees)", "Surroundings": "Other", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": ">10", "Used for total counted": "10", "Easting": "543915", "Northing": "263088", "What3words": "clammy.ethically.rentals", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1066354, 52.2471735 ] } },
+{ "type": "Feature", "id": "3", "properties": { "Location description": "Poplar Road new houses (shared row of trees)", "Surroundings": "Other", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": "8", "Used for total counted": "8", "Easting": "543922", "Northing": "263085", "What3words": "reapply.youths.docket", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1067366, 52.2471447 ] } },
+{ "type": "Feature", "id": "4", "properties": { "Location description": "Poplar Road new houses (shared row of trees)", "Surroundings": "Other", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": ">10", "Used for total counted": "10", "Easting": "543928", "Northing": "263083", "What3words": "burglar.buzzwords.plumped", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1068236, 52.2471252 ] } },
+{ "type": "Feature", "id": "5", "properties": { "Location description": "Poplar Road new houses (shared row of trees)", "Surroundings": "Other", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": "6", "Used for total counted": "6", "Easting": "543933", "Northing": "263080", "What3words": "storytelling.varnishing.antlered", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1068955, 52.2470969 ] } },
+{ "type": "Feature", "id": "6", "properties": { "Location description": "Poplar Road new houses (shared row of trees)", "Surroundings": "Other", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": ">10", "Used for total counted": "10", "Easting": "543939", "Northing": "263078", "What3words": "powdered.stalwart.rewrite", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1069825, 52.2470774 ] } },
+{ "type": "Feature", "id": "7", "properties": { "Location description": "18 Poplar Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": "4", "Used for total counted": "4", "Easting": "543955", "Northing": "263077", "What3words": "griped.degenerate.follicle", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1072162, 52.2470642 ] } },
+{ "type": "Feature", "id": "8", "properties": { "Location description": "18 Poplar Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": "4", "Used for total counted": "4", "Easting": "543955", "Northing": "263077", "What3words": "griped.degenerate.follicle", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1072162, 52.2470642 ] } },
+{ "type": "Feature", "id": "9", "properties": { "Location description": "8 Poplar Road", "Surroundings": "Back garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": ">10", "Used for total counted": "10", "Easting": "543946", "Northing": "263107", "What3words": "breaded.affable.multipurpose", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1070973, 52.2473361 ] } },
+{ "type": "Feature", "id": "10", "properties": { "Location description": "opposite 4 Poplar Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": "1", "Used for total counted": "1", "Easting": "543988", "Northing": "263071", "What3words": "tightly.leaders.troubleshooters", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1076967, 52.2470017 ] } },
+{ "type": "Feature", "id": "11", "properties": { "Location description": "The Poplars, 56 Station Road", "Surroundings": "Back garden", "Habitat type": "Garden", "Tree type (if known)": "Lime", "As recorded": ">10", "Used for total counted": "10", "Easting": "544063", "Northing": "263075", "What3words": "tardiness.relaunch.hemlines", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1087962, 52.247018 ] } },
+{ "type": "Feature", "id": "12", "properties": { "Location description": "rear Oak Tree Way/Kay Hitch Way", "Surroundings": "Other", "Habitat type": "Road Verge", "Tree type (if known)": "", "As recorded": ">10", "Used for total counted": "10", "Easting": "543973", "Northing": "263025", "What3words": "midcareer.joshed.impactful", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1074576, 52.2465923 ] } },
+{ "type": "Feature", "id": "13", "properties": { "Location description": "Kay Hitch Way, parking bay by nr 16", "Surroundings": "Other", "Habitat type": "Road Verge", "Tree type (if known)": "", "As recorded": ">10", "Used for total counted": "10", "Easting": "543996", "Northing": "262959", "What3words": "composition.deconstructing.blitzing", "Grid ref": "TL4362", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1077661, 52.2459933 ] } },
+{ "type": "Feature", "id": "14", "properties": { "Location description": "63 Kay Hitch Way", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "Lime", "As recorded": "1", "Used for total counted": "1", "Easting": "543975", "Northing": "262953", "What3words": "pretended.barefooted.collaborations", "Grid ref": "TL4362", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1074562, 52.2459449 ] } },
+{ "type": "Feature", "id": "15", "properties": { "Location description": "The Firs Surgery", "Surroundings": "Back garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": "6", "Used for total counted": "6", "Easting": "544073", "Northing": "262886", "What3words": "alertly.decides.massager", "Grid ref": "TL4462", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.108862, 52.2453173 ] } },
+{ "type": "Feature", "id": "16", "properties": { "Location description": "The Green", "Surroundings": "Public space", "Habitat type": "Park", "Tree type (if known)": "Lime", "As recorded": "6", "Used for total counted": "6", "Easting": "543987", "Northing": "263604", "What3words": "ancients.burger.municipalities", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1079091, 52.2517907 ] } },
+{ "type": "Feature", "id": "17", "properties": { "Location description": "The Green by Topiary Tree", "Surroundings": "Public space", "Habitat type": "Park", "Tree type (if known)": "Lime", "As recorded": "2", "Used for total counted": "2", "Easting": "543934", "Northing": "263624", "What3words": "breezeway.triceps.surveillance", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1071418, 52.2519842 ] } },
+{ "type": "Feature", "id": "18", "properties": { "Location description": "1 Villa Road", "Surroundings": "Back garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": "1", "Used for total counted": "1", "Easting": "544134", "Northing": "262463", "What3words": "sedated.rapport.cresting", "Grid ref": "TL4462", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1095746, 52.2415009 ] } },
+{ "type": "Feature", "id": "19", "properties": { "Location description": "4 Villa Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "Lime", "As recorded": "2", "Used for total counted": "2", "Easting": "544107", "Northing": "262510", "What3words": "firetruck.demonstrably.therewith", "Grid ref": "TL4462", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1091995, 52.2419303 ] } },
+{ "type": "Feature", "id": "20", "properties": { "Location description": "15 Villa Place", "Surroundings": "Back garden", "Habitat type": "Garden", "Tree type (if known)": "Lime", "As recorded": "3", "Used for total counted": "3", "Easting": "544093", "Northing": "262525", "What3words": "fables.heyday.distances", "Grid ref": "TL4462", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.109001, 52.2420687 ] } },
+{ "type": "Feature", "id": "21", "properties": { "Location description": "NIAB entrance drive, south side", "Surroundings": "Other", "Habitat type": "Woodland", "Tree type (if known)": "Lime", "As recorded": "1", "Used for total counted": "1", "Easting": "543694", "Northing": "262730", "What3words": "initiates.holsters.positioned", "Grid ref": "TL4362", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1032485, 52.2440147 ] } },
+{ "type": "Feature", "id": "22", "properties": { "Location description": "40 South Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": "1", "Used for total counted": "1", "Easting": "543912", "Northing": "262459", "What3words": "craters.afterschool.machinist", "Grid ref": "TL4362", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1063238, 52.241523 ] } },
+{ "type": "Feature", "id": "23", "properties": { "Location description": "42 South Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": "1", "Used for total counted": "1", "Easting": "543910", "Northing": "262447", "What3words": "face.specifics.awardwinning", "Grid ref": "TL4362", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1062895, 52.2414157 ] } },
+{ "type": "Feature", "id": "24", "properties": { "Location description": "46 South Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "Crabapple", "As recorded": "8", "Used for total counted": "8", "Easting": "543907", "Northing": "262419", "What3words": "polluter.comrade.solicitations", "Grid ref": "TL4362", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1062336, 52.2411649 ] } },
+{ "type": "Feature", "id": "25", "properties": { "Location description": "50 South Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "Crabapple", "As recorded": ">10", "Used for total counted": "10", "Easting": "543900", "Northing": "262381", "What3words": "hunt.tinkered.unstressed", "Grid ref": "TL4362", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.106115, 52.2408254 ] } },
+{ "type": "Feature", "id": "26", "properties": { "Location description": "52 South Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": ">10", "Used for total counted": "10", "Easting": "543899", "Northing": "262367", "What3words": "unafraid.fortnightly.tablet", "Grid ref": "TL4362", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1060944, 52.2406998 ] } },
+{ "type": "Feature", "id": "27", "properties": { "Location description": "5 Cottenham Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "Apple", "As recorded": "1", "Used for total counted": "1", "Easting": "543640", "Northing": "264082", "What3words": "curate.preoccupy.cabinetmakers", "Grid ref": "TL4364", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1030326, 52.2561759 ] } },
+{ "type": "Feature", "id": "28", "properties": { "Location description": "10 Cottenham Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "Crabapple", "As recorded": "6", "Used for total counted": "6", "Easting": "543670", "Northing": "264090", "What3words": "nondisclosure.stunted.remorseless", "Grid ref": "TL4364", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1034752, 52.2562399 ] } },
+{ "type": "Feature", "id": "29", "properties": { "Location description": "Abbey Farm, Park Lane entrance west side", "Surroundings": "Other", "Habitat type": "Woodland", "Tree type (if known)": "Lime", "As recorded": "6", "Used for total counted": "6", "Easting": "543244", "Northing": "263846", "What3words": "idiosyncrasies.exhibitionists.checkable", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.097135, 52.2541587 ] } },
+{ "type": "Feature", "id": "30", "properties": { "Location description": "Field on north side of Long Meadow", "Surroundings": "Other", "Habitat type": "Woodland", "Tree type (if known)": "Willow", "As recorded": "2", "Used for total counted": "2", "Easting": "543159", "Northing": "263942", "What3words": "late.mackerel.nonconforming", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.0959313, 52.2550433 ] } },
+{ "type": "Feature", "id": "31", "properties": { "Location description": "Long Meadow", "Surroundings": "Public space", "Habitat type": "Woodland", "Tree type (if known)": "Lime", "As recorded": "3", "Used for total counted": "3", "Easting": "543061", "Northing": "263961", "What3words": "rapport.sleekly.barbershops", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.0945046, 52.2552395 ] } },
+{ "type": "Feature", "id": "32", "properties": { "Location description": "1 St Audrey's Close", "Surroundings": "Back garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": "1", "Used for total counted": "1", "Easting": "543235", "Northing": "263810", "What3words": "planters.conflates.verifying", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.096988, 52.2538376 ] } },
+{ "type": "Feature", "id": "33", "properties": { "Location description": "St Audrey's Close, by Community Centre", "Surroundings": "Other", "Habitat type": "Road Verge", "Tree type (if known)": "", "As recorded": "3", "Used for total counted": "3", "Easting": "543250", "Northing": "263707", "What3words": "ovaries.fuller.crushingly", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.0971639, 52.2529083 ] } },
+{ "type": "Feature", "id": "34", "properties": { "Location description": "Manor Park 'T' (behind 51 Manor Park)", "Surroundings": "Back garden", "Habitat type": "Road Verge", "Tree type (if known)": "", "As recorded": "8", "Used for total counted": "8", "Easting": "543355", "Northing": "263574", "What3words": "devoutly.reality.extraneous", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.0986446, 52.251686 ] } },
+{ "type": "Feature", "id": "35", "properties": { "Location description": "49 Somerset Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": "1", "Used for total counted": "1", "Easting": "543453", "Northing": "263459", "What3words": "evades.shrinks.urging", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1000304, 52.2506273 ] } },
+{ "type": "Feature", "id": "36", "properties": { "Location description": "1 Park Lane", "Surroundings": "Back garden", "Habitat type": "Garden", "Tree type (if known)": "Lime", "As recorded": "5", "Used for total counted": "5", "Easting": "543675", "Northing": "263790", "What3words": "devotion.billiard.barometric", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1034208, 52.2535433 ] } },
+{ "type": "Feature", "id": "37", "properties": { "Location description": "1 Park Lane", "Surroundings": "Back garden", "Habitat type": "Garden", "Tree type (if known)": "Lime", "As recorded": "5", "Used for total counted": "5", "Easting": "543674", "Northing": "263782", "What3words": "bifocals.assassins.scrabbling", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1034028, 52.2534717 ] } },
+{ "type": "Feature", "id": "38", "properties": { "Location description": "1 Park Lane", "Surroundings": "Back garden", "Habitat type": "Garden", "Tree type (if known)": "Lime", "As recorded": "5", "Used for total counted": "5", "Easting": "543674", "Northing": "263773", "What3words": "ferried.grew.fiendish", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.103399, 52.2533908 ] } },
+{ "type": "Feature", "id": "39", "properties": { "Location description": "1 Park Lane", "Surroundings": "Back garden", "Habitat type": "Garden", "Tree type (if known)": "Lime", "As recorded": "5", "Used for total counted": "5", "Easting": "543673", "Northing": "263766", "What3words": "revisionist.serum.barnacle", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1033814, 52.2533282 ] } },
+{ "type": "Feature", "id": "40", "properties": { "Location description": "45 Station Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "Lime", "As recorded": "2", "Used for total counted": "2", "Easting": "543950", "Northing": "263347", "What3words": "canals.chestnut.truculent", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.107258, 52.2494913 ] } },
+{ "type": "Feature", "id": "41", "properties": { "Location description": "45 Station Road", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "Lime", "As recorded": "2", "Used for total counted": "2", "Easting": "543950", "Northing": "263347", "What3words": "canals.chestnut.truculent", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.107258, 52.2494913 ] } },
+{ "type": "Feature", "id": "42", "properties": { "Location description": "The Dole, old hedge line opposite nr 2", "Surroundings": "Public space", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": ">10", "Used for total counted": "10", "Easting": "544128", "Northing": "263156", "What3words": "resolved.showtimes.nonaggression", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1097821, 52.2477287 ] } },
+{ "type": "Feature", "id": "43", "properties": { "Location description": "The Dole, old hedge line opposite nr 2", "Surroundings": "Public space", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": ">10", "Used for total counted": "10", "Easting": "544138", "Northing": "263153", "What3words": "itself.substrate.ordnance", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1099272, 52.2476992 ] } },
+{ "type": "Feature", "id": "44", "properties": { "Location description": "The Dole, old hedge line opposite nr 2", "Surroundings": "Public space", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": ">10", "Used for total counted": "10", "Easting": "544148", "Northing": "263149", "What3words": "televising.pressure.boorish", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1100719, 52.2476606 ] } },
+{ "type": "Feature", "id": "45", "properties": { "Location description": "The Dole, old hedge line opposite nr 10", "Surroundings": "Public space", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": ">10", "Used for total counted": "10", "Easting": "544161", "Northing": "263142", "What3words": "rebooted.medical.gulped", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1102592, 52.2475943 ] } },
+{ "type": "Feature", "id": "46", "properties": { "Location description": "14 The Dole", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": "1", "Used for total counted": "1", "Easting": "544181", "Northing": "263121", "What3words": "unduly.pastrami.microwaving", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.110543, 52.2474004 ] } },
+{ "type": "Feature", "id": "47", "properties": { "Location description": "The Dole, old hedge line opposite nr 14A", "Surroundings": "Public space", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": "7", "Used for total counted": "7", "Easting": "544192", "Northing": "263128", "What3words": "rambler.literacies.coddled", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.110707, 52.2474604 ] } },
+{ "type": "Feature", "id": "48", "properties": { "Location description": "5 Homefield Close", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "Hawthorn", "As recorded": ">10", "Used for total counted": "10", "Easting": "543696", "Northing": "263632", "What3words": "tight.satiated.vase", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1036611, 52.2521182 ] } },
+{ "type": "Feature", "id": "49", "properties": { "Location description": "Recreation Ground, corner of all weather netball court", "Surroundings": "Public space", "Habitat type": "Park", "Tree type (if known)": "", "As recorded": "4", "Used for total counted": "4", "Easting": "544497", "Northing": "262721", "What3words": "uncontrollably.stinger.crucial", "Grid ref": "TL4462", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1149975, 52.2437238 ] } },
+{ "type": "Feature", "id": "50", "properties": { "Location description": "Spire Hospital rear car park", "Surroundings": "Public space", "Habitat type": "Other", "Tree type (if known)": "", "As recorded": "3", "Used for total counted": "3", "Easting": "544516", "Northing": "262806", "What3words": "processor.fabricates.aviation", "Grid ref": "TL4462", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1153119, 52.2444825 ] } },
+{ "type": "Feature", "id": "51", "properties": { "Location description": "Sports Centre front entrance car park", "Surroundings": "Public space", "Habitat type": "Other", "Tree type (if known)": "", "As recorded": ">10", "Used for total counted": "10", "Easting": "544470", "Northing": "263072", "What3words": "textures.steerable.locker", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1147522, 52.2468845 ] } },
+{ "type": "Feature", "id": "52", "properties": { "Location description": "Homefield by sheltered housing community centre old hedge line", "Surroundings": "Public space", "Habitat type": "Road Verge", "Tree type (if known)": "Lime", "As recorded": "2", "Used for total counted": "2", "Easting": "544292", "Northing": "263127", "What3words": "seclude.blockers.impresario", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1121703, 52.2474252 ] } },
+{ "type": "Feature", "id": "53", "properties": { "Location description": "Station Road south corner of West Road", "Surroundings": "Back garden", "Habitat type": "Garden", "Tree type (if known)": "Apple", "As recorded": ">10", "Used for total counted": "10", "Easting": "543903", "Northing": "263378", "What3words": "painters.unbowed.coalitions", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1065832, 52.2497821 ] } },
+{ "type": "Feature", "id": "54", "properties": { "Location description": "Impington Lane seen from Merrington Place play area", "Surroundings": "Back garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": ">10", "Used for total counted": "10", "Easting": "544133", "Northing": "263566", "What3words": "sanity.hydrothermal.nondisclosure", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1100301, 52.2514111 ] } },
+{ "type": "Feature", "id": "55", "properties": { "Location description": "High Street outside Stir", "Surroundings": "Public space", "Habitat type": "Road Verge", "Tree type (if known)": "Rowan", "As recorded": "5", "Used for total counted": "5", "Easting": "543754", "Northing": "263736", "What3words": "concurring.sectionals.seriously", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1045544, 52.2530375 ] } },
+{ "type": "Feature", "id": "56", "properties": { "Location description": "Peace Memorial by brook", "Surroundings": "Public space", "Habitat type": "Park", "Tree type (if known)": "Lime", "As recorded": ">10", "Used for total counted": "10", "Easting": "544063", "Northing": "263184", "What3words": "plume.inexpressible.plodded", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1088426, 52.2479973 ] } },
+{ "type": "Feature", "id": "57", "properties": { "Location description": "Peace Memorial by brook", "Surroundings": "Public space", "Habitat type": "Park", "Tree type (if known)": "Lime", "As recorded": ">10", "Used for total counted": "10", "Easting": "544023", "Northing": "263200", "What3words": "commandeering.marigold.diagrams", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.108264, 52.2481515 ] } },
+{ "type": "Feature", "id": "58", "properties": { "Location description": "Histon Manor, opposite 7 Park Lane", "Surroundings": "Other", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": "1", "Used for total counted": "1", "Easting": "543563", "Northing": "263778", "What3words": "rebooted.citizen.gravest", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1017761, 52.2534647 ] } },
+{ "type": "Feature", "id": "59", "properties": { "Location description": "8 Park Lane", "Surroundings": "Orchard", "Habitat type": "Orchard", "Tree type (if known)": "Apple", "As recorded": "1", "Used for total counted": "4", "Easting": "543722", "Northing": "263838", "What3words": "superhuman.coincidentally.fairgoers", "Grid ref": "TL4363", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1041293, 52.2539623 ] } },
+{ "type": "Feature", "id": "60", "properties": { "Location description": "1 Ambrose Way", "Surroundings": "Front garden", "Habitat type": "Garden", "Tree type (if known)": "", "As recorded": "1", "Used for total counted": "3", "Easting": "544206", "Northing": "263760", "What3words": "honeysuckle.purifiers.tyrannosaurus", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1111815, 52.2531349 ] } },
+{ "type": "Feature", "id": "61", "properties": { "Location description": "Opposite 6 Ambrose Way", "Surroundings": "Public space", "Habitat type": "Road Verge", "Tree type (if known)": "", "As recorded": "1", "Used for total counted": "1", "Easting": "544252", "Northing": "263707", "What3words": "reproaches.hissy.declension", "Grid ref": "TL4463", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.1118323, 52.2526467 ] } },
+{ "type": "Feature", "id": "62", "properties": { "Location description": "Ash tree at CCSA beside veteran oak", "Surroundings": "Other", "Habitat type": "Woodland", "Tree type (if known)": "Ash", "As recorded": "1", "Used for total counted": "1", "Easting": "543401", "Northing": "264277", "What3words": "oblige.infrequently.notecards", "Grid ref": "TL4364", "First surveyed": "14/01/2023", "Last Surveyed": "14/01/2023", "Picture": "" }, "geometry": { "type": "Point", "coordinates": [ 0.0996163, 52.2579901 ] } }
+]
+}
+;
+
+<!--
+// written with assistance from information and code examples here
+// "Using SVG icons for Leafletjs" : https://onestepcode.com/leaflet-markers-svg-icons/
+// leafletjs examples: https://leafletjs.com/examples/geojson/example.html
+// https://gis.stackexchange.com/questions/111410/displaying-link-in-popup-with-leaflet
+-->
+<!-- map code here -->
+{
+	 "use strict";
+		 
+	// base maps
+	    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+						maxZoom: 20,
+						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+					});
+};
+
+// Helper functions for the tree layer : markers, popup
+
+         function treeMarker(feature, latlng)
+	     { 
+		     var geojsonMarkerOptions = {
+					radius: 6,
+					fillColor: "#222222",
+					color: "#000",
+					weight: 1,
+					opacity: 0.9,
+					fillOpacity: 0.8,
+					riseOnHover: true,
+					riseOffset: 500,
+  				    alt: feature.properties.StreetAddress,
+					title: feature.properties.description
+					};
+			  return L.circleMarker(latlng, geojsonMarkerOptions);
+	         
+	     };
+		 // layer with bunch sizes
+		   function bunchMarker(feature, latlng)
+	     { 
+			var theIcon = L.divIcon({  html: feature.properties["Used for total counted"],
+			  className: "svg-icon",
+			  iconSize: [10, 15],
+			  iconAnchor: [10,20]
+			});
+	         return L.marker(latlng, 
+			                 {icon: theIcon,
+							 riseOnHover: true,
+							 riseOffset: 500,
+							 opacity: 0.9,
+							  alt: feature.properties.StreetAddress,
+							 title: feature.properties["Used for total counted"]});
+	     };
+		 function trailMarker(feature, latlng) {
+			 var geojsonMarkerOptions = {
+					radius: 3,
+					fillColor: "#ff7800",
+					color: "#000",
+					weight: 1,
+					opacity: 1,
+					fillOpacity: 0.8
+					};
+			  return L.circleMarker(latlng, geojsonMarkerOptions);
+		 };
+		 
+		function treePopupContent(feature) {
+				
+				props = feature.properties;
+				var treeType = props["Tree type (if known)"];
+				if (treeType === "") {
+					treeType="unknown tree type";
+				}
+				var Streetview = '<a target="_blank" alt="Google streetview in separate tab" href="http://maps.google.com/maps?q=' + props.long + ',' +  props.lat +'">Google Streetview &copy;' + '</a>';
+				
+				const contents = '<b>' + props["Location description"] + '</b><br />' + props.Surroundings + '<br />' + treeType+ "," + props["Used for total counted"] + " plants" + '<br />' + Streetview  + " " ;
+				
+				return contents;
+		};
+		
+		// Layer depends on variable "trees" containing the trees data in geoJSON format
+		//Tree	Location description	Surroundings	Habitat type	Tree type (if known)	As recorded	Used for total counted	Easting	Northing	What3words	Lat	Long	Grid ref	First surveyed	Last Surveyed	Picture
+
+		// use [""] notation e.g. feature["First surveyed"]
+
+				
+		   const treesLayer = L.geoJSON(trees, {
+			       pointToLayer: treeMarker,
+				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
+		       } ).bindPopup(function (layer) {
+								const contents = treePopupContent(layer.feature)
+		                     return contents;
+				   })
+		// same data reused, but different attribute (bunch size) used for marker display
+		 const bunchLayer = L.geoJSON(trees, {
+			       pointToLayer: bunchMarker,
+				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
+		       } )
+			  // same data, filter to give trail of largest # bunches on tree 
+		const trailLayer =  L.geoJSON(trees, {
+			      	   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>',
+					   pointToLayer: trailMarker,
+					    filter: function(feature, layer) {
+							return (feature.properties["Used for total counted"] >= 10)
+    }
+		       } )
+				   
+		// set up map
+		var HisImp = [52.2500, 0.1042];
+		var map = L.map('map', {
+			center: HisImp,
+			zoom: 15,
+			// layers which are on by default
+			layers: [tiles, treesLayer]
+			});		
+		// add Layer Control
+		var baseMaps = { 
+						"OpenStreetMap" : tiles
+  					}
+		// available layers
+		var overLays = {
+						"Mistletoe"    : treesLayer,
+						"Bunch sizes"  : bunchLayer,
+						"Large bunch trail" : trailLayer
+						}
+	
+        var layerControl = L.control.layers(baseMaps, overLays).addTo(map);
+
+</script>
+<div id="ack">
+
+<details>
+<summary>Acknowledgements</summary>
+<p>
+If you want to reuse or copy this application : it is licensed using the <a href="./LICENSE">APACHE 2 licence</a> and uses the <a href="https://leafletjs.com/">Leafletjs library </a> which is licenced under the <a href="https://github.com/Leaflet/Leaflet/blob/main/LICENSE"> BSD 2 licence</a>.
+TL;DR : "OK to copy and reuse"
+<p>
+Tree data and pictures owned on behalf of the community by 
+<a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces (HIGS)</a>
+<p>
+Data and pictures submitted by members of Histon and Impington community, and collated, cleaned, analysed etc by HIGS using other freely available data or software from :
+<ul>
+<li><a href="https://www.openstreetmap.org/copyright/">OpenStreetmaps data</a></li>
+<li><a href="https://www.ordnancesurvey.co.uk/products/os-open-uprn">UK Ordnance survey data </a></li>
+<li><a href="https://what3words.com/products/batch-converter">what3Words</a></li>
+<li><a href="https://qgis.org/en/site/">QGIS software</a></li>
+</ul>
+</details>
+</div>

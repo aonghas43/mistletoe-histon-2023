@@ -7,30 +7,25 @@
 						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 					});
 };
-/*
-black tree icon, 
-https://commons.wikimedia.org/wiki/File:Tree-12361.svg
-licensed under the Creative Commons Attribution 3.0 Unported license.
-https://creativecommons.org/licenses/by/3.0/deed.en
-*/
+
 // Helper functions for the tree layer : markers, popup
 
-            var treeIcon = L.icon({
-						   iconUrl: 'docs/images/Tree-12361.svg.png',
-			   iconSize: [16,16],
-			   iconAnchor: [10,10],
-			   popupAnchor: [-15,-20],
-			   tooltipAnchor:[-15,-20]
-			});
-            function treeMarker(feature, latlng)
+         function treeMarker(feature, latlng)
 	     { 
-	         return L.marker(latlng, 
-			                 {icon: treeIcon,
-							 riseOnHover: true,
-							 riseOffset: 500,
-							 opacity: 0.9,
-							  alt: feature.properties.StreetAddress,
-							  title: feature.properties.description});
+		     var geojsonMarkerOptions = {
+					radius: 8,
+					fillColor: "#222222",
+					color: "#000",
+					weight: 1,
+					opacity: 0.9,
+					fillOpacity: 0.8
+					riseOnHover: true,
+					riseOffset: 500,
+  				    alt: feature.properties.StreetAddress,
+					title: feature.properties.description
+					};
+			  return L.circleMarker(latlng, geojsonMarkerOptions);
+	         
 	     };
 		 // layer with bunch sizes
 		   function bunchMarker(feature, latlng)
@@ -67,16 +62,10 @@ https://creativecommons.org/licenses/by/3.0/deed.en
 				if (treeType === "") {
 					treeType="unknown tree type";
 				}
-				var Picture = props.Picture;
-				if (Picture != "") {
-					Picture = '<br /><a href="' + props.Picture + '" alt="picture" target="_blank">Picture</a>' ;
-				}
 				var Streetview = '<a target="_blank" alt="Google streetview in separate tab" href="http://maps.google.com/maps?q=' + props.long + ',' +  props.lat +'">Google Streetview &copy;' + '</a>';
 				
-				const contents = '<b>' + props["Location description"] + '</b><br />' + props.Surroundings + '<br />' + treeType+ "," + props["Used for total counted"] + " plants" + '<br />' + Streetview  + " " + Picture;
+				const contents = '<b>' + props["Location description"] + '</b><br />' + props.Surroundings + '<br />' + treeType+ "," + props["Used for total counted"] + " plants" + '<br />' + Streetview  + " " ;
 				
-				// could instead do w3w '<a href="https://what3words.com/' + props.what3words + '">what3words &copy;  link: ' + props.what3words + '</a>'
-
 				return contents;
 		};
 		
