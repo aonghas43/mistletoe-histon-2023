@@ -16,6 +16,5 @@
 * re-centre so that all current data in view
 * smaller bunchsize icon
 * Acknowledgements now wrapped in HTML detail/summary block, to be collapsible
-
-* 2022 & 2023 survey data
 * survey date in popup
+* 2022 & 2023 survey data

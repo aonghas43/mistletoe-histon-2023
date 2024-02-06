@@ -1,3 +1,4 @@
+<!-- map code here -->
 {
 	 "use strict";
 		 
@@ -13,12 +14,12 @@
          function treeMarker(feature, latlng)
 	     { 
 		     var geojsonMarkerOptions = {
-					radius: 8,
+					radius: 6,
 					fillColor: "#222222",
 					color: "#000",
 					weight: 1,
 					opacity: 0.9,
-					fillOpacity: 0.8
+					fillOpacity: 0.8,
 					riseOnHover: true,
 					riseOffset: 500,
   				    alt: feature.properties.StreetAddress,
@@ -32,8 +33,8 @@
 	     { 
 			var theIcon = L.divIcon({  html: feature.properties["Used for total counted"],
 			  className: "svg-icon",
-			  iconSize: [16, 26],
-			  iconAnchor: [10,28]
+			  iconSize: [10, 15],
+			  iconAnchor: [10,20]
 			});
 	         return L.marker(latlng, 
 			                 {icon: theIcon,
@@ -45,7 +46,7 @@
 	     };
 		 function trailMarker(feature, latlng) {
 			 var geojsonMarkerOptions = {
-					radius: 8,
+					radius: 3,
 					fillColor: "#ff7800",
 					color: "#000",
 					weight: 1,
@@ -62,9 +63,13 @@
 				if (treeType === "") {
 					treeType="unknown tree type";
 				}
-				var Streetview = '<a target="_blank" alt="Google streetview in separate tab" href="http://maps.google.com/maps?q=' + props.long + ',' +  props.lat +'">Google Streetview &copy;' + '</a>';
 				
-				const contents = '<b>' + props["Location description"] + '</b><br />' + props.Surroundings + '<br />' + treeType+ "," + props["Used for total counted"] + " plants" + '<br />' + Streetview  + " " ;
+				var long=feature.geometry.coordinates[1];
+				var lat=feature.geometry.coordinates[0];
+				var Streetview = '<a target="_blank" alt="Google streetview in separate tab" href="http://maps.google.com/maps?q=' 
+				+ long + ',' +  lat + '">Google Streetview &copy;' + '</a>';
+				
+				const contents = '<b>' + props["Location description"] + '</b><br />' + props.Surroundings + '<br />' + treeType + "," + props["Used for total counted"] + " plants" + '<br />' + "Survey date : " +  props["Date"] + '<br />' + Streetview  + " " ;
 				
 				return contents;
 		};
@@ -97,7 +102,7 @@
 		       } )
 				   
 		// set up map
-		var HisImp = [52.2535, 0.1042];
+		var HisImp = [52.2500, 0.1042];
 		var map = L.map('map', {
 			center: HisImp,
 			zoom: 15,
@@ -114,11 +119,7 @@
 						"Bunch sizes"  : bunchLayer,
 						"Large bunch trail" : trailLayer
 						}
-		var layerControl = L.control.layers(baseMaps, overLays).addTo(map);
-		
-//
-// written with assistance from information and code examples here 
-// "Using SVG icons for Leafletjs" : https://onestepcode.com/leaflet-markers-svg-icons/
-// leafletjs examples: https://leafletjs.com/examples/geojson/example.html 
-// https://gis.stackexchange.com/questions/111410/displaying-link-in-popup-with-leaflet
+	
+        var layerControl = L.control.layers(baseMaps, overLays).addTo(map);
+
 

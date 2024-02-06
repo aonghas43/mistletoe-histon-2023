@@ -2,4 +2,4 @@ rem
 rem
 rem
 
-cmd "http-server -c-1"
+cmd /k "http-server c-1"
