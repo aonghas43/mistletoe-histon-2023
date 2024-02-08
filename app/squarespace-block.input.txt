@@ -7,10 +7,13 @@ HTML Container for
 This file is loaded into squarespace.html via jQuery, for testing only
 -->
 
+<div id="map" style="width: 100%; height: 500px;"></div>
+
 <style>
   html, body {
     height: 100%;
     margin: 0;
+	
 }
 
 .leaflet-container {
@@ -23,12 +26,16 @@ This file is loaded into squarespace.html via jQuery, for testing only
 	float: right;
 }
 
+
 .svg-icon {
 	background-color: aqua;
-	// override element.style height
+	 /* override element.style height, word wrap*/
 	height: 12px !important;
+    word-break: normal;
+	word-wrap: normal;
 	opacity: 0.3;
 }
+
 
 .svg-icon:hover {
   color: #FF00FF;
@@ -155,7 +162,7 @@ var trees = {
 // leafletjs examples: https://leafletjs.com/examples/geojson/example.html
 // https://gis.stackexchange.com/questions/111410/displaying-link-in-popup-with-leaflet
 -->
-<!-- map code here -->
+// map code here
 {
 	 "use strict";
 		 
@@ -237,26 +244,32 @@ var trees = {
 		// use [""] notation e.g. feature["First surveyed"]
 
 				
-		   const treesLayer = L.geoJSON(trees, {
+		   	   const treesLayer = L.geoJSON(trees, {
 			       pointToLayer: treeMarker,
 				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
 		       } ).bindPopup(function (layer) {
 								const contents = treePopupContent(layer.feature)
 		                     return contents;
-				   })
+				   });
 		// same data reused, but different attribute (bunch size) used for marker display
 		 const bunchLayer = L.geoJSON(trees, {
 			       pointToLayer: bunchMarker,
 				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
-		       } )
+		       } ).bindPopup(function (layer) {
+								const contents = treePopupContent(layer.feature)
+		                     return contents;
+				   });
 			  // same data, filter to give trail of largest # bunches on tree 
 		const trailLayer =  L.geoJSON(trees, {
 			      	   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>',
 					   pointToLayer: trailMarker,
 					    filter: function(feature, layer) {
 							return (feature.properties["Used for total counted"] >= 10)
-    }
-		       } )
+						}
+		       } ).bindPopup(function (layer) {
+								const contents = treePopupContent(layer.feature)
+		                     return contents;
+				   });
 				   
 		// set up map
 		var HisImp = [52.2500, 0.1042];

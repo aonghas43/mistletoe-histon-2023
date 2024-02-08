@@ -86,20 +86,20 @@
 		       } ).bindPopup(function (layer) {
 								const contents = treePopupContent(layer.feature)
 		                     return contents;
-				   })
+				   });
 		// same data reused, but different attribute (bunch size) used for marker display
 		 const bunchLayer = L.geoJSON(trees, {
 			       pointToLayer: bunchMarker,
 				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
-		       } )
+		       } );
 			  // same data, filter to give trail of largest # bunches on tree 
 		const trailLayer =  L.geoJSON(trees, {
 			      	   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>',
 					   pointToLayer: trailMarker,
 					    filter: function(feature, layer) {
 							return (feature.properties["Used for total counted"] >= 10)
-    }
-		       } )
+						}
+		       } );
 				   
 		// set up map
 		var HisImp = [52.2500, 0.1042];

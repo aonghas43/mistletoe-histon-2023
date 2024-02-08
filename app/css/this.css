@@ -15,10 +15,14 @@ html, body {
 
 .svg-icon {
 	background-color: aqua;
-	// override element.style height
+	 /* override element.style height, word wrap*/
 	height: 12px !important;
+    word-break: normal;
+	word-wrap: normal;
 	opacity: 0.3;
 }
+
+
 
 .svg-icon:hover {
   color: #FF00FF;
