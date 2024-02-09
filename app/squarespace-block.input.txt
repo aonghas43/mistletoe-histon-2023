@@ -33,6 +33,9 @@ This file is loaded into squarespace.html via jQuery, for testing only
 	height: 12px !important;
     word-break: normal;
 	word-wrap: normal;
+	/* DB */
+	text-align: center;
+	vertical-align: center !important;
 	opacity: 0.3;
 }
 
@@ -41,7 +44,6 @@ This file is loaded into squarespace.html via jQuery, for testing only
   color: #FF00FF;
 }
 details > summary {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   padding: 4px;
   width: 200px;
   background-color:  #8FBC8F;
@@ -51,7 +53,6 @@ details > summary {
 }
 
 details > p, details > ul {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-color: #eeeeee;
   padding: 4px;
   margin: 0;
@@ -197,8 +198,8 @@ var trees = {
 	     { 
 			var theIcon = L.divIcon({  html: feature.properties["Used for total counted"],
 			  className: "svg-icon",
-			  iconSize: [10, 15],
-			  iconAnchor: [10,20]
+			   iconSize: [20, 40],
+				iconAnchor: [10,20]
 			});
 	         return L.marker(latlng, 
 			                 {icon: theIcon,
