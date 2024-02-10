@@ -28,15 +28,15 @@ This file is loaded into squarespace.html via jQuery, for testing only
 
 
 .svg-icon {
-	background-color: aqua;
+	/* Abbey fields green */
+	background-color:  #84c823;
 	 /* override element.style height, word wrap*/
-	height: 12px !important;
+	height: 18px !important;
     word-break: normal;
 	word-wrap: normal;
-	/* DB */
-	text-align: center;
-	vertical-align: center !important;
 	opacity: 0.3;
+	text-align: center;
+	vertical-align: center;
 }
 
 
@@ -50,6 +50,7 @@ details > summary {
   border: none;
   box-shadow: 1px 1px 2px #bbbbbb;
   cursor: pointer;
+  text-align: center;
 }
 
 details > p, details > ul {
@@ -198,7 +199,7 @@ var trees = {
 	     { 
 			var theIcon = L.divIcon({  html: feature.properties["Used for total counted"],
 			  className: "svg-icon",
-			   iconSize: [20, 40],
+			   iconSize: [20, 30],
 				iconAnchor: [10,20]
 			});
 	         return L.marker(latlng, 

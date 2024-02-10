@@ -33,7 +33,7 @@
 	     { 
 			var theIcon = L.divIcon({  html: feature.properties["Used for total counted"],
 			  className: "svg-icon",
-			  iconSize: [10, 15],
+			  iconSize: [20,30],
 			  iconAnchor: [10,20]
 			});
 	         return L.marker(latlng, 
@@ -91,7 +91,10 @@
 		 const bunchLayer = L.geoJSON(trees, {
 			       pointToLayer: bunchMarker,
 				   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
-		       } );
+		       } ).bindPopup(function (layer) {
+								const contents = treePopupContent(layer.feature)
+		                     return contents;
+				   });;
 			  // same data, filter to give trail of largest # bunches on tree 
 		const trailLayer =  L.geoJSON(trees, {
 			      	   attribution: 'Tree data owned on behalf of the community by <a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>',
@@ -99,7 +102,10 @@
 					    filter: function(feature, layer) {
 							return (feature.properties["Used for total counted"] >= 10)
 						}
-		       } );
+		       } ).bindPopup(function (layer) {
+								const contents = treePopupContent(layer.feature)
+		                     return contents;
+				   });;
 				   
 		// set up map
 		var HisImp = [52.2500, 0.1042];
