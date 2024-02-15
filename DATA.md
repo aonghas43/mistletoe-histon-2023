@@ -16,12 +16,11 @@ Tree	Location description	Surroundings	Tree type (if known)	As recorded	Used for
 * take copy of the spreadsheet
 * add a new sheet, copying the data from and including the header downwards (leave out anything above). This is for your working.
 * Remove the "Observer" and any other columns with GDPR PII data from new sheet
-* in the new sheet, create an excel column to help make the input for the OS batch converter : formula will be something like _CONCATENATE(G2, " ", H2)_ assuming the 2 columns are G and H
-* drag formula to fill rest of column to limit of data
-* copy contents of new column into a file and save as eg "coords.txt"
-* check that the e, n coords are separated by a tab not spaces as this seems to affect how the conversion works
+* create new worksheet, e.g. "coords"* copy values of E and N into new sheet
+* export new sheet as tab-separated text format (important for the batch conversion by OS) e.g. "coords.txt"
 * upload to OS batch converter at <https://www.ordnancesurvey.co.uk/gps/transformation/batch#>
-* Download the converted data : it will be a CSV file
+* Download the converted data : it will be a CSV file.
+* verify that coords are all in the "TL" range for OS grid ref, as crude sanity check
 * Open the converted CSV file using Excel. The column of interest is called something like **ETRS89 Geodetic ( Decimal Degrees )**
 * Create a column headed **Lat** and a column headed **Long** (Uppercase 1st letter, important !)
 * Formula in **lat** extracts the 2nd coordinate, since converted data is long-lat - assuming column is "K" : _=MID(K2, FIND(",", K2)+1, FIND(",", K2, FIND(",",K2)+1)-FIND(",", K2)-1)_
